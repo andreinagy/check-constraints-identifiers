@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'check_xcode_xmls'
+
+::CheckXcodeXmls.main(ARGV)
