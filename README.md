@@ -1,8 +1,8 @@
 # CheckXcodeXmls
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/check_xcode_xmls`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Script that checks xib and storyboard files for:
+    - constraints identifiers.
+    - that files are using autolayout
 
 ## Installation
 
@@ -22,7 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Usage:
+`check-xcode-xmls -i <ignore regex> [--check-constraints-identifiers] [--check-use-autolayout] <target directory>`
+
+Example for running from the project directory and ignore any file path that contains "Ignore" or "Debug".
+`check-xcode-xmls -i "Ignore|Debug" --check-constraints-identifiers --check-use-autolayout .`
 
 ## Development
 
