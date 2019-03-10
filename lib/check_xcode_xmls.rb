@@ -7,18 +7,20 @@ module CheckXcodeXmls
   # Your code goes here...
 
   def self.main(args)
+    arguments_string = args.join(' ')
     options = Parser.parse(args)
 
     shell = ShellAdapter.new
-    result = shell.process_files(options.ignore_regex_string,
-                                 options.input_directory)
+    result = shell.process_files(
+      options.check_constraints_identifiers,
+      options.check_use_autolayout,
+      options.ignore_regex_string,
+      options.input_directory
+    )
 
-    if result.empty? || result.nil?
-      puts 'No constraints identifiers missing.'
-    else
-      puts 'Constraints with missing identifiers:'
-      puts result
-    end
+    puts "#{$PROGRAM_NAME} #{arguments_string}"
+    puts "Total issues: #{result.length || 0}"
+    puts result unless result.nil?
   end
 end
 

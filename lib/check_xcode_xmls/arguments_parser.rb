@@ -1,7 +1,12 @@
 require 'optparse'
 
 # https://docs.ruby-lang.org/en/2.1.0/OptionParser.html
-Options = Struct.new(:input_directory, :ignore_regex_string)
+Options = Struct.new(
+  :input_directory,
+  :ignore_regex_string,
+  :check_constraints_identifiers,
+  :check_use_autolayout
+)
 
 SCRIPT_NAME = 'check-xcode-xmls'.freeze
 
@@ -10,6 +15,8 @@ class Parser
   def self.default_options
     result = Options.new
     result.input_directory = '.'
+    result.check_constraints_identifiers = false
+    result.check_use_autolayout = false
     result
   end
   private_class_method :default_options
@@ -33,6 +40,16 @@ class Parser
            '--ignore-regex=IGNORE',
            'Case sensitive ignore files regex. Eg. "Ignore|Debug"') do |v|
         result.ignore_regex_string = v
+      end
+
+      o.on('--check-constraints-identifiers',
+           'Check files for constraints that don\'t have identifiers') do |_v|
+        result.check_constraints_identifiers = true
+      end
+
+      o.on('--check-use-autolayout',
+           'Find files which don\'t use autolayout') do |_v|
+        result.check_use_autolayout = true
       end
     end
 
