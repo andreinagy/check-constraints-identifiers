@@ -1,0 +1,2 @@
+./bin/check-xcode-xmls -i Ignore --check-constraints-identifiers .
+Total issues: 0

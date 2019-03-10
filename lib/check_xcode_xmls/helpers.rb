@@ -48,12 +48,12 @@ end
 
 def find_files(ignore_regex_string, base_path, extension)
   file_paths = []
-  ignore_regex = Regexp.new(ignore_regex_string)
+  ignore_regex = Regexp.new(ignore_regex_string) unless ignore_regex_string.nil?
   # puts ignore_regex
   Find.find(base_path) do |path|
     next if File.directory? path
     next if path !~ extension
-    next if path =~ ignore_regex
+    next unless ignore_regex.nil? || !path =~ ignore_regex
 
     file_paths << path
   end

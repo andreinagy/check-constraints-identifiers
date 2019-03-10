@@ -1,0 +1,4 @@
+./bin/check-xcode-xmls --check-use-autolayout .
+Total issues: 2
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutStoryboard.storyboard: doesn't use autolayout.
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutXib.xib: doesn't use autolayout.

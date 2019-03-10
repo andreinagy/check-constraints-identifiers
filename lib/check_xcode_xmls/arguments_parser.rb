@@ -63,7 +63,8 @@ class Parser
 
     result.input_directory = argv.pop
     if result.input_directory.nil? || !Dir.exist?(result.input_directory)
-      puts 'Can\'t find directory ' + result.input_directory
+      directory = result.input_directory || ''
+      puts 'Can\'t find directory ' + directory
       Parser.parse %w[--help]
       exit 0
     end

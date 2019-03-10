@@ -1,0 +1,2 @@
+./bin/check-xcode-xmls -i (Ignore|Debug) --check-constraints-identifiers --check-use-autolayout .
+Total issues: 0
