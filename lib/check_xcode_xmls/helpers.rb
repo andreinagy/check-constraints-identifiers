@@ -4,11 +4,11 @@ require 'find'
 
 def find_files(ignore_regex_string, base_path, extension)
   file_paths = []
-  ignore_regex = Regex.new(ignore_regex_string)
+  ignore_regex = Regexp.new(ignore_regex_string)
   Find.find(base_path) do |path|
     next if File.directory? path
     next if path !~ extension
-    next if path ~ ignore_regex
+    next if path =~ ignore_regex
 
     file_paths << path
   end
@@ -44,54 +44,26 @@ end
 require 'nokogiri'
 def parse_xml(file)
   string = File.open(file, 'r:UTF-8').read
-  # xml_str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-  # <xml>
-  #   <foo>
-  #     <goo>a</goo>
-  #     <hoo>b</hoo>
-  #   </foo>
-  #   <foo>
-  #     <goo>c</goo>
-  #     <hoo>d</hoo>
-  #   </foo>
-  # </xml>"
-  
-#   <<EOF
-# <THING1:things type="Container">
-#   <PART1:Id type="Property">1234</PART1:Id>
-#   <PART1:Name type="Property">The Name</PART1:Name>
-# </THING1:things>
-# EOF
-
   doc = Nokogiri::XML(string)
   puts doc.xpath('document').attribute('type')
 
-  result = search_constraints_without_identifiers(doc.xpath('document'))
-
-  # thing = doc.xpath('//foo')
-  # puts thing
-  # puts "------ start"
-  # puts 'ID   = ' + thing.xpath('//foo').text
-  # puts "------ end"
-  # puts 'Name = ' + thing.xpath('//Name').text
+  result = search_constraints_without_identifiers(file, doc.xpath('document'))
 
   result
 end
 
-def search_constraints_without_identifiers(doc_xpath)
+def search_constraints_without_identifiers(file, doc_xpath)
   results = []
   doc_xpath.children.each { |child|
-    array = search_constraints_without_identifiers(child) 
+    array = search_constraints_without_identifiers(file, child) 
     # puts '----'
     # puts child
     if child.name == "constraint"
       if child.attr('identifier').nil?
-        array.push(child)
+        array.push("#{file}: constraint #{child.attr('id')} doesn't have an identifier.")
       end
     end
     results += array unless array.nil?
   }
-  
   results
-
 end

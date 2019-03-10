@@ -55,7 +55,7 @@
                         <constraint firstItem="lp4-0u-MdP" firstAttribute="centerY" secondItem="imY-Rr-Y2g" secondAttribute="centerY" identifier="buttonVerticalConstraint" id="dFD-iF-abe"/>
                         <constraint firstItem="lp4-0u-MdP" firstAttribute="top" secondItem="UZ8-wo-Zhk" secondAttribute="bottom" constant="20" identifier="labelVerticalSpace" id="dFP-Lg-VWq"/>
                         <constraint firstItem="lp4-0u-MdP" firstAttribute="centerX" secondItem="imY-Rr-Y2g" secondAttribute="centerX" identifier="buttonHorizontalConstraint" id="gUO-Vt-2Rc"/>
-                        <constraint firstItem="k6F-bN-DcQ" firstAttribute="centerX" secondItem="lp4-0u-MdP" secondAttribute="centerX" id="p81-ta-VgG"/>
+                        <constraint firstItem="k6F-bN-DcQ" firstAttribute="centerX" secondItem="lp4-0u-MdP" secondAttribute="centerX" identifier="buttonCenterX" id="p81-ta-VgG"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="imY-Rr-Y2g"/>
                 </view>
