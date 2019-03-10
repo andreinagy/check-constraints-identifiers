@@ -22,6 +22,4 @@ module CheckXcodeXmls
   end
 end
 
-# TODO: nandrei append file to output.
-# TODO: nandrei make ignoring work.
 # TODO: nandrei make switches for each operation

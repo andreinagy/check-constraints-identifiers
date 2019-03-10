@@ -31,7 +31,7 @@ class Parser
       end
       o.on('-iIGNORE',
         '--ignore-regex=IGNORE',
-        'Ignore files regex') do |v|
+        'Case sensitive ignore files regex. Eg. "Ignore|Debug"') do |v|
           result.ignore_regex_string = v
         end
     end
