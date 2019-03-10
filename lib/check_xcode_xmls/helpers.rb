@@ -1,30 +1,23 @@
 require 'find'
 
 class XcodeXml
-
   def extension
     'implement in subclass'
   end
-  
   end
-  
-  class Xib < XcodeXml
-  
-    def extension
-      '.xib'
-    end
-  
-  
+
+class Xib < XcodeXml
+  def extension
+    '.xib'
   end
-  
-  class Storyboard < XcodeXml
-  
-    def extension
-      '.storyboard'
-    end
-    # eg. segue identifier
-  
+end
+
+class Storyboard < XcodeXml
+  def extension
+    '.storyboard'
   end
+  # eg. segue identifier
+end
 
 # Convenience utilities.
 
@@ -33,7 +26,6 @@ def find_files(ignore_regex_string, base_path, extension)
   ignore_regex = Regexp.new(ignore_regex_string)
   puts ignore_regex
   Find.find(base_path) do |path|
-
     next if File.directory? path
     next if path !~ extension
     next if path =~ ignore_regex
@@ -56,16 +48,16 @@ end
 
 def search_constraints_without_identifiers(file, doc_xpath)
   results = []
-  doc_xpath.children.each { |child|
-    array = search_constraints_without_identifiers(file, child) 
+  doc_xpath.children.each do |child|
+    array = search_constraints_without_identifiers(file, child)
     # puts '----'
     # puts child
-    if child.name == "constraint"
+    if child.name == 'constraint'
       if child.attr('identifier').nil?
         array.push("#{file}: constraint #{child.attr('id')} doesn't have an identifier.")
       end
     end
     results += array unless array.nil?
-  }
+  end
   results
 end

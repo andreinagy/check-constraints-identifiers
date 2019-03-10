@@ -10,12 +10,12 @@ module CheckXcodeXmls
     options = Parser.parse(args)
 
     shell = ShellAdapter.new
-    result = shell.process_files(options.ignore_regex_string, 
-      options.input_directory)
+    result = shell.process_files(options.ignore_regex_string,
+                                 options.input_directory)
 
-    if result.empty? || result.nil? 
+    if result.empty? || result.nil?
       puts 'No constraints identifiers missing.'
-    else 
+    else
       puts 'Constraints with missing identifiers:'
       puts result
     end
