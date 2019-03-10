@@ -20,7 +20,7 @@ REFERENCE_DATA = [
    'test/test_references/ignore_off.txt'],
 
   ['--- Test ignore on',
-   '-i Ignore --check-constraints-identifiers .',
+   '-i "Ignore" --check-constraints-identifiers .',
    'test/test_references/ignore_on.txt'],
 
   ['--- Test identifiers on, autolayout off',

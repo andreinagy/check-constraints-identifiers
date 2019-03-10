@@ -1,2 +1,13 @@
 ./bin/check-xcode-xmls -i (Ignore|Debug) --check-constraints-identifiers --check-use-autolayout .
-Total issues: 0
+Total issues: 11
+./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id Nao-Md-iaS doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id 6EG-a7-FUF doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id TzK-B6-tet doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id bKB-JH-n5I doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutStoryboard.storyboard: doesn't use autolayout.
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutXib.xib: doesn't use autolayout.
+./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id qO0-En-ovT doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id BmW-cE-MFt doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id EaD-SC-6vo doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id b4o-dP-JB6 doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id hvx-eL-XU1 doesn't have an identifier.

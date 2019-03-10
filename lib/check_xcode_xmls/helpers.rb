@@ -22,7 +22,7 @@ class XcodeXml
       # puts child
       if child.name == 'constraint'
         if child.attr('identifier').nil?
-          array.push("#{file}: constraint #{child.attr('id')} doesn't have an identifier.")
+          array.push("#{file}: constraint with id #{child.attr('id')} doesn't have an identifier.")
         end
       end
       result += array unless array.nil?
@@ -53,7 +53,9 @@ def find_files(ignore_regex_string, base_path, extension)
   Find.find(base_path) do |path|
     next if File.directory? path
     next if path !~ extension
-    next unless ignore_regex.nil? || !path =~ ignore_regex
+    if ignore_regex
+      next if path =~ ignore_regex
+    end
 
     file_paths << path
   end
