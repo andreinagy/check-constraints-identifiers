@@ -2,18 +2,15 @@ require 'find'
 
 # Convenience utilities.
 
-def find_files(ignore_list, base_path, extension)
+def find_files(ignore_regex_string, base_path, extension)
   file_paths = []
+  ignore_regex = Regex.new(ignore_regex_string)
   Find.find(base_path) do |path|
     next if File.directory? path
     next if path !~ extension
+    next if path ~ ignore_regex
 
-    ignore_matches = (ignore_list || []).select do |item|
-      path.include? item
-    end
-    should_ignore = ignore_matches.any?
-
-    file_paths << path unless should_ignore
+    file_paths << path
   end
   file_paths
 end

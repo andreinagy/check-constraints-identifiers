@@ -16,6 +16,10 @@
 		33781B2B222280D700F3B9D1 /* SampleProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33781B2A222280D700F3B9D1 /* SampleProjectUITests.swift */; };
 		33781B392222825B00F3B9D1 /* Conforming.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33781B382222825B00F3B9D1 /* Conforming.xib */; };
 		33781B3B222282B500F3B9D1 /* Offending.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33781B3A222282B500F3B9D1 /* Offending.xib */; };
+		33941F99223549000044F670 /* IgnoreXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33941F98223549000044F670 /* IgnoreXib.xib */; };
+		33941F9B2235492C0044F670 /* IgnoreStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33941F9A2235492C0044F670 /* IgnoreStoryboard.storyboard */; };
+		33941F9D2235495A0044F670 /* NoAutolayoutStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33941F9C2235495A0044F670 /* NoAutolayoutStoryboard.storyboard */; };
+		33941F9F223549870044F670 /* NoAutolayoutXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33941F9E223549870044F670 /* NoAutolayoutXib.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		33781B2C222280D700F3B9D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33781B382222825B00F3B9D1 /* Conforming.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Conforming.xib; sourceTree = "<group>"; };
 		33781B3A222282B500F3B9D1 /* Offending.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Offending.xib; sourceTree = "<group>"; };
+		33941F98223549000044F670 /* IgnoreXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IgnoreXib.xib; sourceTree = "<group>"; };
+		33941F9A2235492C0044F670 /* IgnoreStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IgnoreStoryboard.storyboard; sourceTree = "<group>"; };
+		33941F9C2235495A0044F670 /* NoAutolayoutStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoAutolayoutStoryboard.storyboard; sourceTree = "<group>"; };
+		33941F9E223549870044F670 /* NoAutolayoutXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoAutolayoutXib.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,10 @@
 				33781B0E222280D500F3B9D1 /* Main.storyboard */,
 				33781B382222825B00F3B9D1 /* Conforming.xib */,
 				33781B3A222282B500F3B9D1 /* Offending.xib */,
+				33941F98223549000044F670 /* IgnoreXib.xib */,
+				33941F9A2235492C0044F670 /* IgnoreStoryboard.storyboard */,
+				33941F9C2235495A0044F670 /* NoAutolayoutStoryboard.storyboard */,
+				33941F9E223549870044F670 /* NoAutolayoutXib.xib */,
 				33781B11222280D700F3B9D1 /* Assets.xcassets */,
 				33781B13222280D700F3B9D1 /* LaunchScreen.storyboard */,
 				33781B16222280D700F3B9D1 /* Info.plist */,
@@ -236,10 +248,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				33781B15222280D700F3B9D1 /* LaunchScreen.storyboard in Resources */,
+				33941F99223549000044F670 /* IgnoreXib.xib in Resources */,
+				33941F9B2235492C0044F670 /* IgnoreStoryboard.storyboard in Resources */,
 				33781B3B222282B500F3B9D1 /* Offending.xib in Resources */,
 				33781B392222825B00F3B9D1 /* Conforming.xib in Resources */,
 				33781B12222280D700F3B9D1 /* Assets.xcassets in Resources */,
 				33781B10222280D500F3B9D1 /* Main.storyboard in Resources */,
+				33941F9F223549870044F670 /* NoAutolayoutXib.xib in Resources */,
+				33941F9D2235495A0044F670 /* NoAutolayoutStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

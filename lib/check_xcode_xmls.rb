@@ -10,7 +10,8 @@ module CheckXcodeXmls
     options = Parser.parse(args)
 
     shell = ShellAdapter.new
-    result = shell.process_files(nil, options.input_directory)
+    result = shell.process_files(options.ignore_regex_string, 
+      options.input_directory)
 
     if result.empty? || result.nil? 
       puts 'No constraints identifiers missing.'
@@ -20,3 +21,7 @@ module CheckXcodeXmls
     end
   end
 end
+
+# TODO: nandrei append file to output.
+# TODO: nandrei make ignoring work.
+# TODO: nandrei make switches for each operation
