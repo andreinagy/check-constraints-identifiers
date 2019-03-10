@@ -1,20 +1,45 @@
 require 'find'
 
 class XcodeXml
-  def extension
+  def self.extension
     'implement in subclass'
   end
+
+  def self.check_if_file_uses_autolayout(file, doc_xpath)
+    # <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch"
+    # propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    if doc_xpath.attribute('useAutolayout').nil?
+      return ["#{file}: doesn't use autolayout."]
+    end
+    nil
   end
 
+  def self.search_constraints_without_identifiers(file, doc_xpath)
+    result = []
+    doc_xpath.children.each do |child|
+      array = search_constraints_without_identifiers(file, child)
+      # puts '----'
+      # puts child
+      if child.name == 'constraint'
+        if child.attr('identifier').nil?
+          array.push("#{file}: constraint #{child.attr('id')} doesn't have an identifier.")
+        end
+      end
+      result += array unless array.nil?
+    end
+    result
+  end
+end
+
 class Xib < XcodeXml
-  def extension
-    '.xib'
+  def self.extension
+    /.xib$/
   end
 end
 
 class Storyboard < XcodeXml
-  def extension
-    '.storyboard'
+  def self.extension
+    /.storyboard$/
   end
   # eg. segue identifier
 end
@@ -40,24 +65,19 @@ def parse_xml(file)
   string = File.open(file, 'r:UTF-8').read
   doc = Nokogiri::XML(string)
   # puts doc.xpath('document').attribute('type')
+  result = []
 
-  result = search_constraints_without_identifiers(file, doc.xpath('document'))
+  [Xib,
+   Storyboard].each do |item|
 
-  result
-end
+    next if file !~ item.extension
 
-def search_constraints_without_identifiers(file, doc_xpath)
-  results = []
-  doc_xpath.children.each do |child|
-    array = search_constraints_without_identifiers(file, child)
-    # puts '----'
-    # puts child
-    if child.name == 'constraint'
-      if child.attr('identifier').nil?
-        array.push("#{file}: constraint #{child.attr('id')} doesn't have an identifier.")
-      end
-    end
-    results += array unless array.nil?
+    autolayoutValue = item.check_if_file_uses_autolayout(file, doc.xpath('document'))
+    result += autolayoutValue unless autolayoutValue.nil?
+
+    constraintsValues = item.search_constraints_without_identifiers(file, doc.xpath('document'))
+    result += constraintsValues unless constraintsValues.nil?
   end
-  results
+  # result = search_constraints_without_identifiers(file, doc.xpath('document'))
+  result
 end
