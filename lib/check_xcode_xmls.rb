@@ -11,6 +11,12 @@ module CheckXcodeXmls
 
     shell = ShellAdapter.new
     result = shell.process_files(nil, options.input_directory)
-    puts result
+
+    if result.empty? || result.nil? 
+      puts 'No constraints identifiers missing.'
+    else 
+      puts 'Constraints with missing identifiers:'
+      puts result
+    end
   end
 end
