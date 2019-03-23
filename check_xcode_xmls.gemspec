@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.executables   = 'check-xcode-xmls'
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.0'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'minitest', '~> 5.0'

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     check_xcode_xmls (0.1.1)
-      nokogiri
+      nokogiri (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
