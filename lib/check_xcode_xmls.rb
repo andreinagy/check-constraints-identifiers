@@ -18,8 +18,8 @@ module CheckXcodeXmls
       options.input_directory
     )
 
-    puts "#{$PROGRAM_NAME} #{arguments_string}"
-    puts "Total issues: #{result.length || 0}"
+    puts "#{$PROGRAM_NAME} #{arguments_string}" if options.echo_invocation
+    puts "Total issues: #{result.length || 0}" if options.print_totals
     puts result unless result.nil?
   end
 end

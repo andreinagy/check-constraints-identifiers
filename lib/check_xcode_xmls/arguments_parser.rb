@@ -4,6 +4,8 @@ require 'optparse'
 Options = Struct.new(
   :input_directory,
   :ignore_regex_string,
+  :echo_invocation,
+  :print_totals,
   :check_constraints_identifiers,
   :check_use_autolayout
 )
@@ -15,6 +17,8 @@ class Parser
   def self.default_options
     result = Options.new
     result.input_directory = '.'
+    result.echo_invocation = false
+    result.print_totals = false
     result.check_constraints_identifiers = false
     result.check_use_autolayout = false
     result
@@ -40,6 +44,18 @@ class Parser
            '--ignore-regex=IGNORE',
            'Case sensitive ignore files regex. Eg. "Ignore|Debug"') do |v|
         result.ignore_regex_string = v
+      end
+
+      o.on('-e',
+           '--echo',
+           'Echo invocation') do |_v|
+        result.echo_invocation = true
+      end
+
+      o.on('-t',
+           '--total',
+           'Print total') do |_v|
+        result.print_totals = true
       end
 
       o.on('--check-constraints-identifiers',
