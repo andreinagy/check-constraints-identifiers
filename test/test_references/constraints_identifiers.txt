@@ -1,5 +1,3 @@
-./bin/check-xcode-xmls --check-constraints-identifiers .
-Total issues: 13
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id Nao-Md-iaS doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id 6EG-a7-FUF doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id TzK-B6-tet doesn't have an identifier.

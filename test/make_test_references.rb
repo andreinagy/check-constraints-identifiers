@@ -5,7 +5,7 @@ REPO = 'test/fixtures/'.freeze
 REFERENCE_DATA = [
   ['--- Test no arguments prints help',
    '',
-   'test/test_references/help.txt'],
+   'test/test_references/no_arguments.txt'],
 
   ['--- Test help argument',
    '-h',
@@ -35,8 +35,16 @@ REFERENCE_DATA = [
    '-i "(Ignore|Debug)" --check-constraints-identifiers --check-use-autolayout',
    'test/test_references/test_missing_directory.txt'],
 
+  ['--- Test echo invocation',
+   '-e --check-constraints-identifiers --check-use-autolayout .',
+   'test/test_references/test_echo_invocation.txt'],
+
+  ['--- Test print totals',
+   '-t --check-constraints-identifiers --check-use-autolayout .',
+   'test/test_references/test_print_totals.txt'],
+
   ['--- Test full arguments',
-   '-i "(Ignore|Debug)" --check-constraints-identifiers --check-use-autolayout .',
+   '-e -t -i "(Ignore|Debug)" --check-constraints-identifiers --check-use-autolayout .',
    'test/test_references/test_full_arguments.txt']
 ].freeze
 

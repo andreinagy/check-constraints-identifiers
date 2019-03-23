@@ -1,4 +1,4 @@
-./bin/check-xcode-xmls -i (Ignore|Debug) --check-constraints-identifiers --check-use-autolayout .
+./bin/check-xcode-xmls -e -t -i (Ignore|Debug) --check-constraints-identifiers --check-use-autolayout .
 Total issues: 11
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id Nao-Md-iaS doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id 6EG-a7-FUF doesn't have an identifier.

@@ -1,7 +1,14 @@
+Total issues: 15
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id Nao-Md-iaS doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id 6EG-a7-FUF doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id TzK-B6-tet doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Base.lproj/Main.storyboard: constraint with id bKB-JH-n5I doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/IgnoreStoryboard.storyboard: constraint with id 2zb-gO-2yu doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/IgnoreStoryboard.storyboard: constraint with id 6wY-zt-Zkq doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/IgnoreXib.xib: constraint with id MBF-4e-5DU doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/IgnoreXib.xib: constraint with id vfN-Xh-qFz doesn't have an identifier.
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutStoryboard.storyboard: doesn't use autolayout.
+./test/fixtures/SampleProject/SampleProject/NoAutolayoutXib.xib: doesn't use autolayout.
 ./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id qO0-En-ovT doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id BmW-cE-MFt doesn't have an identifier.
 ./test/fixtures/SampleProject/SampleProject/Offending.xib: constraint with id EaD-SC-6vo doesn't have an identifier.
